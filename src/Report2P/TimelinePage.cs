@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Report2P;
 
-internal class TimelinePage
+public static class TimelinePage
 {
     public static void MakeIndex(string folderOf2pFolders)
     {

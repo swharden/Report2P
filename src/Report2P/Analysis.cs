@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Report2P
 {
-    internal class Analysis
+    public static class Analysis
     {
         public static void AnalyzeAllSubfolders(string folderPath, bool overwrite)
         {

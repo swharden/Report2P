@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PVXML", "PVXML\PVXML.csproj
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Report2P", "Report2P\Report2P.csproj", "{730101FD-4FE6-41AD-86C0-2B2EA266564B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Report2P.GUI", "Report2P.GUI\Report2P.GUI.csproj", "{94545B4E-039A-4886-B825-712022A5EDDC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{730101FD-4FE6-41AD-86C0-2B2EA266564B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{730101FD-4FE6-41AD-86C0-2B2EA266564B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{730101FD-4FE6-41AD-86C0-2B2EA266564B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94545B4E-039A-4886-B825-712022A5EDDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94545B4E-039A-4886-B825-712022A5EDDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94545B4E-039A-4886-B825-712022A5EDDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94545B4E-039A-4886-B825-712022A5EDDC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
