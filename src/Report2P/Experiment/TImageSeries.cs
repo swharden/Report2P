@@ -6,6 +6,7 @@ internal class TImageSeries : IExperiment
 
     public string Details => Scan.GetSummary();
     public DateTime DateTime => Scan.PVState.DateTime;
+    public string ExperimentType => "Image Series";
 
     public string AutoanalysisFolder => System.IO.Path.Combine(Path, "autoanalysis");
 

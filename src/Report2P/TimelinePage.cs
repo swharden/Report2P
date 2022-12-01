@@ -46,7 +46,7 @@ public static class TimelinePage
 
             TimelineItem abfItem = new()
             {
-                Title = $"{Path.GetFileName(abfPath)} ({Path.GetFileNameWithoutExtension(abf.Header.sProtocolPath)})",
+                Title = $"ABF {Path.GetFileNameWithoutExtension(abfPath)} ({Path.GetFileNameWithoutExtension(abf.Header.sProtocolPath)})",
                 Content = $"<div><code>{abfPath}</code></div>" + $"<div><code>{abf}</code></div>",
                 DateTime = abfDateTime,
                 Icon = TimelineIcon.Ephys,
@@ -88,7 +88,7 @@ public static class TimelinePage
 
         return new TimelineItem()
         {
-            Title = Path.GetFileName(experiment.Path),
+            Title = $"{experiment.ExperimentType} {Path.GetFileName(experiment.Path).Split('-').Last()}",
             Content = experiment.Details,
             DateTime = experiment.DateTime,
             Icon = GetExperimentIcon(experiment),

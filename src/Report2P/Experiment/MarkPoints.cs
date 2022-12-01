@@ -6,6 +6,7 @@ internal class MarkPoints : IExperiment
 
     public string Details => "uncaging point shape analysis not implemented";
     public DateTime DateTime => Scan.DateTime;
+    public string ExperimentType => "Uncaging";
 
     public List<ResultsFiles> ImageGroups { get; private set; } = new();
 
