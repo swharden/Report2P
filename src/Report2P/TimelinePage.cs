@@ -1,4 +1,5 @@
-﻿using Report2P.Experiment;
+﻿using AbfSharp;
+using Report2P.Experiment;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -153,7 +154,11 @@ public static class TimelinePage
         foreach (TimelineItem item in sortedTimelineItems)
         {
             Log.Debug($"generating HTML for timeline item: {item.Title}");
-            if (item.DateTime - lastItemTime > TimeSpan.FromMinutes(10))
+            bool isFirstScanInLongTime = item.DateTime - lastItemTime > TimeSpan.FromMinutes(60);
+            bool isNewCell = item.Title.Contains("0201 memtest");
+            bool isFirstItem = item == sortedTimelineItems.First();
+            bool isStartOfNewGroup = isFirstScanInLongTime || isNewCell;
+            if (isStartOfNewGroup && !isFirstItem)
             {
                 report.Add(new TimelineItem() { Icon = TimelineIcon.Break });
                 lastItemTime = item.DateTime;
