@@ -1,30 +1,30 @@
-﻿using ScottPlot.Drawing.Colormaps;
+﻿namespace Report2P.Experiment;
 
-namespace Report2P.Experiment;
-
-internal class Linescan : IExperiment
+internal abstract class Linescan
 {
-    public string Path { get; private set; }
+    public string Path { get; set; } = string.Empty;
 
     public string Details => Scan.GetSummary();
     public DateTime DateTime => Scan.PVState.DateTime;
-    public string ExperimentType => "Linescan";
+    public abstract string ExperimentType { get; }
 
     public string AutoanalysisFolder => System.IO.Path.Combine(Path, "autoanalysis");
 
-    private string ReferencesFolder => System.IO.Path.Combine(Path, "References");
+    public string ReferencesFolder => System.IO.Path.Combine(Path, "References");
 
-    private readonly PVXML.ScanTypes.LineScan Scan;
-
-    public Linescan(string folder)
-    {
-        Path = System.IO.Path.GetFullPath(folder);
-        Scan = new PVXML.ScanTypes.LineScan(folder);
-    }
+    public PVXML.ScanTypes.LineScan Scan { get; protected set; } = null!;
 
     public ResultsFiles[] GetResultFiles()
     {
         List<ResultsFiles> groups = new();
+
+        groups.Add(
+            new ResultsFiles()
+            {
+                Title = $"Uncaging Data",
+                Paths = Directory.GetFiles(Path, "*MarkPoints.xml"),
+            }
+        );
 
         groups.Add(
             new ResultsFiles()

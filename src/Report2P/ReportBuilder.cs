@@ -69,6 +69,11 @@ internal class ReportBuilder
                     {
                         sb.AppendLine($"<li><code>{path}</code></li>");
                     }
+                    else if (path.EndsWith(".xml"))
+                    {
+                        string xml = File.ReadAllText(path);
+                        sb.AppendLine($"<div><pre>{PVXML.ScanTypes.MarkPoints.GetPointsSummary(xml)}</pre></div>");
+                    }
                     else
                     {
                         sb.AppendLine($"<a href='{path}'><img src='{path}' height='300'></a>");

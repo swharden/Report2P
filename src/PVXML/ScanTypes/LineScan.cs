@@ -20,6 +20,8 @@ public class LineScan : IScan
 
     public readonly int SequenceCount = -1;
 
+    public readonly bool HasUncagingData;
+
     public LineScan(string path)
     {
         PVState = new PVState(path);
@@ -33,6 +35,8 @@ public class LineScan : IScan
             .Elements("Frame").First()
             .Elements("PVStateShard").First()
             .Elements("PVStateValue");
+
+        HasUncagingData = Directory.GetFiles(Path.GetDirectoryName(path), "*MarkPoints.xml").Any();
 
         foreach (var stateValueElement in stateValueElements)
         {

@@ -9,8 +9,12 @@ internal static class ExperimentFactory
         if (scan is null)
             return null;
 
-        if (scan is PVXML.ScanTypes.LineScan)
-            return new Linescan(folder2p);
+        if (scan is PVXML.ScanTypes.LineScan linescan)
+        {
+            return linescan.HasUncagingData
+                ? new LinescanWithUncaging(folder2p)
+                : new LinescanWithoutUncaging(folder2p);
+        }
 
         if (scan is PVXML.ScanTypes.SingleImage)
             return new SingleImage(folder2p);
