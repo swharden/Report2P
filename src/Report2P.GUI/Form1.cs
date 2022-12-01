@@ -54,7 +54,7 @@ namespace Report2P.GUI
                 lblProgress1.Text = $"Analyzing {i + 1} of {twoPhotonFolderPaths.Length}";
                 lblProgress2.Text = Path.GetFileName(twoPhotonFolderPaths[i]);
                 Application.DoEvents();
-                Report2P.Analysis.AnalyzeFolder(twoPhotonFolderPaths[i], true);
+                Report2P.Analysis.AnalyzeFolder(twoPhotonFolderPaths[i], cbReanalyze.Checked);
             }
 
             lblProgress1.Text = $"Analysis complete";

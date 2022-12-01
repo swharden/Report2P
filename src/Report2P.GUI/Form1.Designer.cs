@@ -39,9 +39,10 @@
             this.btnLaunch = new System.Windows.Forms.Button();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.pbProgress = new System.Windows.Forms.ProgressBar();
-            this.lblProgress1 = new System.Windows.Forms.Label();
             this.lblProgress2 = new System.Windows.Forms.Label();
+            this.lblProgress1 = new System.Windows.Forms.Label();
+            this.pbProgress = new System.Windows.Forms.ProgressBar();
+            this.cbReanalyze = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gbReport.SuspendLayout();
@@ -56,7 +57,7 @@
             this.tbFolderPath.Name = "tbFolderPath";
             this.tbFolderPath.Size = new System.Drawing.Size(713, 31);
             this.tbFolderPath.TabIndex = 0;
-            this.tbFolderPath.Text = "X:/Data/zProjects/OT-Tom NMDA signaling/2P uncaging/2022-11-18";
+            this.tbFolderPath.Text = "X:\\Data\\zProjects\\OT-Tom NMDA signaling\\Experiments\\2P uncaging\\2022-11-18";
             // 
             // btnScan
             // 
@@ -109,7 +110,7 @@
             this.groupBox1.Controls.Add(this.cbAbfsFolder);
             this.groupBox1.Location = new System.Drawing.Point(12, 96);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(271, 144);
+            this.groupBox1.Size = new System.Drawing.Size(271, 174);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Folder Contents";
@@ -129,19 +130,20 @@
             // 
             // gbReport
             // 
+            this.gbReport.Controls.Add(this.cbReanalyze);
             this.gbReport.Controls.Add(this.btnLaunch);
             this.gbReport.Controls.Add(this.btnGenerate);
             this.gbReport.Enabled = false;
             this.gbReport.Location = new System.Drawing.Point(305, 96);
             this.gbReport.Name = "gbReport";
-            this.gbReport.Size = new System.Drawing.Size(140, 144);
+            this.gbReport.Size = new System.Drawing.Size(140, 174);
             this.gbReport.TabIndex = 8;
             this.gbReport.TabStop = false;
             this.gbReport.Text = "Report";
             // 
             // btnLaunch
             // 
-            this.btnLaunch.Location = new System.Drawing.Point(15, 87);
+            this.btnLaunch.Location = new System.Drawing.Point(15, 118);
             this.btnLaunch.Name = "btnLaunch";
             this.btnLaunch.Size = new System.Drawing.Size(112, 41);
             this.btnLaunch.TabIndex = 4;
@@ -155,7 +157,7 @@
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(112, 41);
             this.btnGenerate.TabIndex = 3;
-            this.btnGenerate.Text = "Generate";
+            this.btnGenerate.Text = "Analyze";
             this.btnGenerate.UseVisualStyleBackColor = true;
             this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
@@ -168,26 +170,10 @@
             this.groupBox3.Controls.Add(this.pbProgress);
             this.groupBox3.Location = new System.Drawing.Point(467, 96);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(401, 144);
+            this.groupBox3.Size = new System.Drawing.Size(401, 174);
             this.groupBox3.TabIndex = 11;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Progress";
-            // 
-            // pbProgress
-            // 
-            this.pbProgress.Location = new System.Drawing.Point(13, 36);
-            this.pbProgress.Name = "pbProgress";
-            this.pbProgress.Size = new System.Drawing.Size(377, 34);
-            this.pbProgress.TabIndex = 0;
-            // 
-            // lblProgress1
-            // 
-            this.lblProgress1.AutoSize = true;
-            this.lblProgress1.Location = new System.Drawing.Point(13, 77);
-            this.lblProgress1.Name = "lblProgress1";
-            this.lblProgress1.Size = new System.Drawing.Size(59, 25);
-            this.lblProgress1.TabIndex = 1;
-            this.lblProgress1.Text = "label1";
             // 
             // lblProgress2
             // 
@@ -198,11 +184,37 @@
             this.lblProgress2.TabIndex = 2;
             this.lblProgress2.Text = "label2";
             // 
+            // lblProgress1
+            // 
+            this.lblProgress1.AutoSize = true;
+            this.lblProgress1.Location = new System.Drawing.Point(13, 77);
+            this.lblProgress1.Name = "lblProgress1";
+            this.lblProgress1.Size = new System.Drawing.Size(59, 25);
+            this.lblProgress1.TabIndex = 1;
+            this.lblProgress1.Text = "label1";
+            // 
+            // pbProgress
+            // 
+            this.pbProgress.Location = new System.Drawing.Point(13, 36);
+            this.pbProgress.Name = "pbProgress";
+            this.pbProgress.Size = new System.Drawing.Size(377, 34);
+            this.pbProgress.TabIndex = 0;
+            // 
+            // cbReanalyze
+            // 
+            this.cbReanalyze.AutoSize = true;
+            this.cbReanalyze.Location = new System.Drawing.Point(16, 83);
+            this.cbReanalyze.Name = "cbReanalyze";
+            this.cbReanalyze.Size = new System.Drawing.Size(111, 29);
+            this.cbReanalyze.TabIndex = 5;
+            this.cbReanalyze.Text = "reanalyze";
+            this.cbReanalyze.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 252);
+            this.ClientSize = new System.Drawing.Size(880, 282);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.gbReport);
             this.Controls.Add(this.groupBox2);
@@ -215,6 +227,7 @@
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.gbReport.ResumeLayout(false);
+            this.gbReport.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
@@ -237,5 +250,6 @@
         private ProgressBar pbProgress;
         private Label lblProgress2;
         private Label lblProgress1;
+        private CheckBox cbReanalyze;
     }
 }
