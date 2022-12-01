@@ -34,35 +34,39 @@
             this.cbAbfsFolder = new System.Windows.Forms.CheckBox();
             this.cbExperimentFile = new System.Windows.Forms.CheckBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblExperimentFile = new System.Windows.Forms.Label();
+            this.lblAbfsFolder = new System.Windows.Forms.Label();
+            this.lbl2pFolder = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnSelect = new System.Windows.Forms.Button();
             this.gbReport = new System.Windows.Forms.GroupBox();
+            this.cbReanalyze = new System.Windows.Forms.CheckBox();
             this.btnLaunch = new System.Windows.Forms.Button();
             this.btnGenerate = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.gbProgress = new System.Windows.Forms.GroupBox();
             this.lblProgress2 = new System.Windows.Forms.Label();
             this.lblProgress1 = new System.Windows.Forms.Label();
             this.pbProgress = new System.Windows.Forms.ProgressBar();
-            this.cbReanalyze = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.gbReport.SuspendLayout();
-            this.groupBox3.SuspendLayout();
+            this.gbProgress.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbFolderPath
             // 
             this.tbFolderPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tbFolderPath.Location = new System.Drawing.Point(14, 30);
+            this.tbFolderPath.Location = new System.Drawing.Point(96, 30);
             this.tbFolderPath.Name = "tbFolderPath";
-            this.tbFolderPath.Size = new System.Drawing.Size(713, 31);
+            this.tbFolderPath.Size = new System.Drawing.Size(772, 31);
             this.tbFolderPath.TabIndex = 0;
             this.tbFolderPath.Text = "X:\\Data\\zProjects\\OT-Tom NMDA signaling\\Experiments\\2P uncaging\\2022-11-18";
             // 
             // btnScan
             // 
             this.btnScan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnScan.Location = new System.Drawing.Point(733, 25);
+            this.btnScan.Location = new System.Drawing.Point(874, 25);
             this.btnScan.Name = "btnScan";
             this.btnScan.Size = new System.Drawing.Size(112, 41);
             this.btnScan.TabIndex = 2;
@@ -74,37 +78,37 @@
             // 
             this.cb2pFolder.AutoSize = true;
             this.cb2pFolder.Enabled = false;
-            this.cb2pFolder.Location = new System.Drawing.Point(12, 35);
+            this.cb2pFolder.Location = new System.Drawing.Point(12, 40);
             this.cb2pFolder.Name = "cb2pFolder";
-            this.cb2pFolder.Size = new System.Drawing.Size(228, 29);
+            this.cb2pFolder.Size = new System.Drawing.Size(22, 21);
             this.cb2pFolder.TabIndex = 3;
-            this.cb2pFolder.Text = "Contains \"2p\" subfolder";
             this.cb2pFolder.UseVisualStyleBackColor = true;
             // 
             // cbAbfsFolder
             // 
             this.cbAbfsFolder.AutoSize = true;
             this.cbAbfsFolder.Enabled = false;
-            this.cbAbfsFolder.Location = new System.Drawing.Point(12, 70);
+            this.cbAbfsFolder.Location = new System.Drawing.Point(12, 80);
             this.cbAbfsFolder.Name = "cbAbfsFolder";
-            this.cbAbfsFolder.Size = new System.Drawing.Size(241, 29);
+            this.cbAbfsFolder.Size = new System.Drawing.Size(22, 21);
             this.cbAbfsFolder.TabIndex = 4;
-            this.cbAbfsFolder.Text = "Contains \"abfs\" subfolder";
             this.cbAbfsFolder.UseVisualStyleBackColor = true;
             // 
             // cbExperimentFile
             // 
             this.cbExperimentFile.AutoSize = true;
             this.cbExperimentFile.Enabled = false;
-            this.cbExperimentFile.Location = new System.Drawing.Point(12, 105);
+            this.cbExperimentFile.Location = new System.Drawing.Point(12, 120);
             this.cbExperimentFile.Name = "cbExperimentFile";
-            this.cbExperimentFile.Size = new System.Drawing.Size(238, 29);
+            this.cbExperimentFile.Size = new System.Drawing.Size(22, 21);
             this.cbExperimentFile.TabIndex = 5;
-            this.cbExperimentFile.Text = "Contains \"experiment.txt\"";
             this.cbExperimentFile.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblExperimentFile);
+            this.groupBox1.Controls.Add(this.lblAbfsFolder);
+            this.groupBox1.Controls.Add(this.lbl2pFolder);
             this.groupBox1.Controls.Add(this.cb2pFolder);
             this.groupBox1.Controls.Add(this.cbExperimentFile);
             this.groupBox1.Controls.Add(this.cbAbfsFolder);
@@ -115,18 +119,56 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Folder Contents";
             // 
+            // lblExperimentFile
+            // 
+            this.lblExperimentFile.AutoSize = true;
+            this.lblExperimentFile.Location = new System.Drawing.Point(33, 117);
+            this.lblExperimentFile.Name = "lblExperimentFile";
+            this.lblExperimentFile.Size = new System.Drawing.Size(212, 25);
+            this.lblExperimentFile.TabIndex = 6;
+            this.lblExperimentFile.Text = "Contains \"experiment.txt\"";
+            // 
+            // lblAbfsFolder
+            // 
+            this.lblAbfsFolder.AutoSize = true;
+            this.lblAbfsFolder.Location = new System.Drawing.Point(33, 77);
+            this.lblAbfsFolder.Name = "lblAbfsFolder";
+            this.lblAbfsFolder.Size = new System.Drawing.Size(215, 25);
+            this.lblAbfsFolder.TabIndex = 6;
+            this.lblAbfsFolder.Text = "Contains \"abfs\" subfolder";
+            // 
+            // lbl2pFolder
+            // 
+            this.lbl2pFolder.AutoSize = true;
+            this.lbl2pFolder.Location = new System.Drawing.Point(33, 37);
+            this.lbl2pFolder.Name = "lbl2pFolder";
+            this.lbl2pFolder.Size = new System.Drawing.Size(202, 25);
+            this.lbl2pFolder.TabIndex = 6;
+            this.lbl2pFolder.Text = "Contains \"2p\" subfolder";
+            // 
             // groupBox2
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.btnSelect);
             this.groupBox2.Controls.Add(this.tbFolderPath);
             this.groupBox2.Controls.Add(this.btnScan);
             this.groupBox2.Location = new System.Drawing.Point(12, 12);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(856, 78);
+            this.groupBox2.Size = new System.Drawing.Size(998, 78);
             this.groupBox2.TabIndex = 7;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Folder";
+            // 
+            // btnSelect
+            // 
+            this.btnSelect.Location = new System.Drawing.Point(6, 25);
+            this.btnSelect.Name = "btnSelect";
+            this.btnSelect.Size = new System.Drawing.Size(84, 41);
+            this.btnSelect.TabIndex = 3;
+            this.btnSelect.Text = "Select";
+            this.btnSelect.UseVisualStyleBackColor = true;
+            this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
             // 
             // gbReport
             // 
@@ -140,6 +182,16 @@
             this.gbReport.TabIndex = 8;
             this.gbReport.TabStop = false;
             this.gbReport.Text = "Report";
+            // 
+            // cbReanalyze
+            // 
+            this.cbReanalyze.AutoSize = true;
+            this.cbReanalyze.Location = new System.Drawing.Point(16, 83);
+            this.cbReanalyze.Name = "cbReanalyze";
+            this.cbReanalyze.Size = new System.Drawing.Size(111, 29);
+            this.cbReanalyze.TabIndex = 5;
+            this.cbReanalyze.Text = "reanalyze";
+            this.cbReanalyze.UseVisualStyleBackColor = true;
             // 
             // btnLaunch
             // 
@@ -161,19 +213,20 @@
             this.btnGenerate.UseVisualStyleBackColor = true;
             this.btnGenerate.Click += new System.EventHandler(this.btnGenerate_Click);
             // 
-            // groupBox3
+            // gbProgress
             // 
-            this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.gbProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox3.Controls.Add(this.lblProgress2);
-            this.groupBox3.Controls.Add(this.lblProgress1);
-            this.groupBox3.Controls.Add(this.pbProgress);
-            this.groupBox3.Location = new System.Drawing.Point(467, 96);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(401, 174);
-            this.groupBox3.TabIndex = 11;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Progress";
+            this.gbProgress.Controls.Add(this.lblProgress2);
+            this.gbProgress.Controls.Add(this.lblProgress1);
+            this.gbProgress.Controls.Add(this.pbProgress);
+            this.gbProgress.Enabled = false;
+            this.gbProgress.Location = new System.Drawing.Point(467, 96);
+            this.gbProgress.Name = "gbProgress";
+            this.gbProgress.Size = new System.Drawing.Size(543, 174);
+            this.gbProgress.TabIndex = 11;
+            this.gbProgress.TabStop = false;
+            this.gbProgress.Text = "Progress";
             // 
             // lblProgress2
             // 
@@ -195,30 +248,23 @@
             // 
             // pbProgress
             // 
+            this.pbProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.pbProgress.Location = new System.Drawing.Point(13, 36);
             this.pbProgress.Name = "pbProgress";
-            this.pbProgress.Size = new System.Drawing.Size(377, 34);
+            this.pbProgress.Size = new System.Drawing.Size(489, 34);
             this.pbProgress.TabIndex = 0;
-            // 
-            // cbReanalyze
-            // 
-            this.cbReanalyze.AutoSize = true;
-            this.cbReanalyze.Location = new System.Drawing.Point(16, 83);
-            this.cbReanalyze.Name = "cbReanalyze";
-            this.cbReanalyze.Size = new System.Drawing.Size(111, 29);
-            this.cbReanalyze.TabIndex = 5;
-            this.cbReanalyze.Text = "reanalyze";
-            this.cbReanalyze.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(880, 282);
-            this.Controls.Add(this.groupBox3);
+            this.ClientSize = new System.Drawing.Size(1022, 281);
+            this.Controls.Add(this.gbProgress);
             this.Controls.Add(this.gbReport);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Report2P";
@@ -228,8 +274,8 @@
             this.groupBox2.PerformLayout();
             this.gbReport.ResumeLayout(false);
             this.gbReport.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
+            this.gbProgress.ResumeLayout(false);
+            this.gbProgress.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -246,10 +292,14 @@
         private GroupBox gbReport;
         private Button btnLaunch;
         private Button btnGenerate;
-        private GroupBox groupBox3;
+        private GroupBox gbProgress;
         private ProgressBar pbProgress;
         private Label lblProgress2;
         private Label lblProgress1;
         private CheckBox cbReanalyze;
+        private Button btnSelect;
+        private Label lblExperimentFile;
+        private Label lblAbfsFolder;
+        private Label lbl2pFolder;
     }
 }

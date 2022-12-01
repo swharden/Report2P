@@ -11,23 +11,39 @@ namespace Report2P.GUI
             lblProgress2.Text = "";
         }
 
+        private void btnSelect_Click(object sender, EventArgs e)
+        {
+            FolderBrowserDialog diag = new() { SelectedPath = tbFolderPath.Text };
+            if (diag.ShowDialog() == DialogResult.OK)
+                tbFolderPath.Text = diag.SelectedPath;
+        }
+
         private void btnScan_Click(object sender, EventArgs e)
         {
             string folderPath = Path.GetFullPath(tbFolderPath.Text);
 
             string subfolder2p = Path.Combine(folderPath, "2p");
-            cb2pFolder.Checked = Directory.Exists(subfolder2p);
+            SetCheck(cb2pFolder, lbl2pFolder, Directory.Exists(subfolder2p));
 
             string subfolderabfs = Path.Combine(folderPath, "abfs");
-            cbAbfsFolder.Checked = Directory.Exists(subfolderabfs);
+            SetCheck(cbAbfsFolder, lblAbfsFolder, Directory.Exists(subfolderabfs));
 
             string experimentFile = Path.Combine(folderPath, "experiment.txt");
-            cbExperimentFile.Checked = File.Exists(experimentFile);
+            SetCheck(cbExperimentFile, lblExperimentFile, File.Exists(experimentFile));
 
-            gbReport.Enabled = cb2pFolder.Checked && cbAbfsFolder.Checked && cbExperimentFile.Checked;
+            bool isValidFolder = cb2pFolder.Checked && cbAbfsFolder.Checked && cbExperimentFile.Checked;
+            gbReport.Enabled = isValidFolder;
+            gbProgress.Enabled = isValidFolder;
 
             string htmlFilePath = Path.Combine(folderPath, "2p/index.html");
             btnLaunch.Enabled = File.Exists(htmlFilePath);
+        }
+
+        private void SetCheck(CheckBox cb, Label lb, bool ok)
+        {
+            cb.Checked = ok;
+            lb.ForeColor = ok ? Color.Black : Color.White;
+            lb.BackColor = ok ? SystemColors.Control : Color.Red;
         }
 
         private void btnLaunch_Click(object sender, EventArgs e)
