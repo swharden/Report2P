@@ -29,7 +29,7 @@ internal class MarkPoints : IExperiment
             {
                 Title = "Reference Images",
                 Paths = Directory.GetFiles(AutoanalysisFolder, "ref_*.png")
-                    .Select(x => System.IO.Path.GetFileName(Path) + "/autoanalysis/" + System.IO.Path.GetFileName(x))
+                    .Select(x => Path + "/autoanalysis/" + System.IO.Path.GetFileName(x))
                     .ToArray(),
             }
         );

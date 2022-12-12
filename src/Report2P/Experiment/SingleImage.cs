@@ -31,7 +31,7 @@ internal class SingleImage : IExperiment
             {
                 Title = "Images",
                 Paths = Directory.GetFiles(AutoanalysisFolder, "*.png")
-                    .Select(x => System.IO.Path.GetFileName(Path) + "/autoanalysis/" + System.IO.Path.GetFileName(x))
+                    .Select(x => Path + "/autoanalysis/" + System.IO.Path.GetFileName(x))
                     .ToArray(),
             }
         );

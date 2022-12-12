@@ -31,7 +31,7 @@ internal abstract class Linescan
             {
                 Title = "Reference Images",
                 Paths = Directory.GetFiles(AutoanalysisFolder, "ref_*.png")
-                    .Select(x => System.IO.Path.GetFileName(Path) + "/autoanalysis/" + System.IO.Path.GetFileName(x))
+                    .Select(x => Path + "/autoanalysis/" + System.IO.Path.GetFileName(x))
                     .ToArray(),
             }
         );
@@ -41,7 +41,7 @@ internal abstract class Linescan
             {
                 Title = "Linescan Images",
                 Paths = Directory.GetFiles(AutoanalysisFolder, "data_*.png")
-                    .Select(x => System.IO.Path.GetFileName(Path) + "/autoanalysis/" + System.IO.Path.GetFileName(x))
+                    .Select(x => Path + "/autoanalysis/" + System.IO.Path.GetFileName(x))
                     .ToArray(),
             }
         );
@@ -51,7 +51,7 @@ internal abstract class Linescan
             {
                 Title = "Linescan Analyses",
                 Paths = Directory.GetFiles(AutoanalysisFolder, "linescan_*.png")
-                    .Select(x => System.IO.Path.GetFileName(Path) + "/autoanalysis/" + System.IO.Path.GetFileName(x))
+                    .Select(x => Path + "/autoanalysis/" + System.IO.Path.GetFileName(x))
                     .ToArray(),
             }
         );

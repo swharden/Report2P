@@ -33,7 +33,7 @@ internal class TImageSeries : IExperiment
         {
             Title = "Intensity Plots",
             Paths = Directory.GetFiles(AutoanalysisFolder, "intensity_*.png")
-                .Select(x => System.IO.Path.GetFileName(Path) + "/autoanalysis/" + System.IO.Path.GetFileName(x))
+                .Select(x => Path + "/autoanalysis/" + System.IO.Path.GetFileName(x))
                 .ToArray(),
         };
 
@@ -41,7 +41,7 @@ internal class TImageSeries : IExperiment
         {
             Title = "Reference Images",
             Paths = Directory.GetFiles(AutoanalysisFolder, "ref_*.png")
-                .Select(x => System.IO.Path.GetFileName(Path) + "/autoanalysis/" + System.IO.Path.GetFileName(x))
+                .Select(x => Path + "/autoanalysis/" + System.IO.Path.GetFileName(x))
                 .ToArray(),
         };
 
