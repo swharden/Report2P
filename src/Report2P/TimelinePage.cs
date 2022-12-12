@@ -99,7 +99,7 @@ public static class TimelinePage
 
     private static TimelineItem[] GetTimelineItems2P(string folderOf2pFolders)
     {
-        return Directory.GetDirectories(folderOf2pFolders)
+        return PVXML.Filesystem.Get2PDataFolders(folderOf2pFolders)
             .Select(x => GetTimelineItem(x))
             .Where(x => x is not null)
             .Cast<TimelineItem>()
