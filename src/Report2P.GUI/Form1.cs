@@ -8,7 +8,7 @@ namespace Report2P.GUI
         {
             InitializeComponent();
             lblProgress1.Text = "";
-            lblProgress2.Text = "";
+            tbFolderPath.Text = "X:\\Data\\zProjects\\OT-Tom NMDA signaling\\Experiments\\2P uncaging\\2022-12-09";
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
@@ -20,6 +20,9 @@ namespace Report2P.GUI
 
         private void btnScan_Click(object sender, EventArgs e)
         {
+            lblProgress1.Text = "Scanning Filesystem...";
+            Application.DoEvents();
+
             string folderPath = Path.GetFullPath(tbFolderPath.Text);
 
             string subfolder2p = Path.Combine(folderPath, "2p");
@@ -37,6 +40,10 @@ namespace Report2P.GUI
 
             string htmlFilePath = Path.Combine(folderPath, "2p/index.html");
             btnLaunch.Enabled = File.Exists(htmlFilePath);
+
+            string[] dataFolders = PVXML.Filesystem.Get2PDataFolders(subfolder2p);
+
+            lblProgress1.Text = $"Located {dataFolders.Length} two-photon data folders";
         }
 
         private void SetCheck(CheckBox cb, Label lb, bool ok)
@@ -55,32 +62,34 @@ namespace Report2P.GUI
             p.Start();
         }
 
+
         private void btnGenerate_Click(object sender, EventArgs e)
         {
+            lblProgress1.Text = "Scanning Filesystem...";
+            Application.DoEvents();
+
             string folderPath = Path.GetFullPath(tbFolderPath.Text);
             string subfolder2p = Path.Combine(folderPath, "2p");
-            string[] twoPhotonFolderPaths = Directory.GetDirectories(subfolder2p);
 
+            string[] twoPhotonFolderPaths = PVXML.Filesystem.Get2PDataFolders(subfolder2p);
             pbProgress.Value = 0;
             pbProgress.Maximum = twoPhotonFolderPaths.Length;
 
             for (int i = 0; i < twoPhotonFolderPaths.Length; i++)
             {
                 pbProgress.Value = i + 1;
-                lblProgress1.Text = $"Analyzing {i + 1} of {twoPhotonFolderPaths.Length}";
-                lblProgress2.Text = Path.GetFileName(twoPhotonFolderPaths[i]);
+                lblProgress1.Text = $"Analyzing {i + 1} of {twoPhotonFolderPaths.Length}: " +
+                    $"{Path.GetFileName(twoPhotonFolderPaths[i])}";
                 Application.DoEvents();
                 Report2P.Analysis.AnalyzeFolder(twoPhotonFolderPaths[i], cbReanalyze.Checked);
             }
 
-            lblProgress1.Text = $"Analysis complete";
-            lblProgress2.Text = "Generating report...";
+            lblProgress1.Text = "Generating HTML report...";
             Application.DoEvents();
             TimelinePage.MakeIndex(subfolder2p);
 
             pbProgress.Value = 0;
-            lblProgress2.Text = "Report generated";
-            btnScan_Click(this, EventArgs.Empty);
+            lblProgress1.Text = "Analysis complete.";
         }
     }
 }

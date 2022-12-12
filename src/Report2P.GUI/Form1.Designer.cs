@@ -44,7 +44,6 @@
             this.btnLaunch = new System.Windows.Forms.Button();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.gbProgress = new System.Windows.Forms.GroupBox();
-            this.lblProgress2 = new System.Windows.Forms.Label();
             this.lblProgress1 = new System.Windows.Forms.Label();
             this.pbProgress = new System.Windows.Forms.ProgressBar();
             this.groupBox1.SuspendLayout();
@@ -217,7 +216,6 @@
             // 
             this.gbProgress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbProgress.Controls.Add(this.lblProgress2);
             this.gbProgress.Controls.Add(this.lblProgress1);
             this.gbProgress.Controls.Add(this.pbProgress);
             this.gbProgress.Enabled = false;
@@ -227,15 +225,6 @@
             this.gbProgress.TabIndex = 11;
             this.gbProgress.TabStop = false;
             this.gbProgress.Text = "Progress";
-            // 
-            // lblProgress2
-            // 
-            this.lblProgress2.AutoSize = true;
-            this.lblProgress2.Location = new System.Drawing.Point(13, 105);
-            this.lblProgress2.Name = "lblProgress2";
-            this.lblProgress2.Size = new System.Drawing.Size(59, 25);
-            this.lblProgress2.TabIndex = 2;
-            this.lblProgress2.Text = "label2";
             // 
             // lblProgress1
             // 
@@ -294,7 +283,6 @@
         private Button btnGenerate;
         private GroupBox gbProgress;
         private ProgressBar pbProgress;
-        private Label lblProgress2;
         private Label lblProgress1;
         private CheckBox cbReanalyze;
         private Button btnSelect;
