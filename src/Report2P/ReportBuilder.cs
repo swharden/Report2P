@@ -72,7 +72,9 @@ internal class ReportBuilder
                     else if (path.EndsWith(".xml"))
                     {
                         string xml = File.ReadAllText(path);
-                        sb.AppendLine($"<div><pre>{PVXML.ScanTypes.MarkPoints.GetPointsSummary(xml)}</pre></div>");
+                        string[] envFiles = Directory.GetFiles(Path.GetDirectoryName(path)!, "*.env");
+                        string env = envFiles.Any() ? File.ReadAllText(envFiles.First()) : string.Empty;
+                        sb.AppendLine($"<div><pre>{PVXML.ScanTypes.MarkPoints.GetPointsSummary(xml, env)}</pre></div>");
                     }
                     else
                     {

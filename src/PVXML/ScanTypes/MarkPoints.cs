@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 using System.Xml.Linq;
 
@@ -20,28 +21,51 @@ public class MarkPoints
         DateTime = DateTime.Parse(scanDate);
     }
 
-    public static string GetPointsSummary(string xmlText)
+    public static string GetPointsSummary(string xmlText, string envText)
     {
-        string[] parts = xmlText.Split(" ")
+        string[] xmlParts = xmlText.Split(" ")
             .Where(x => x.Contains("="))
             .Select(x => x.Trim())
             .Where(x => !string.IsNullOrWhiteSpace(x))
             .ToArray();
 
-        string[] keysOfInterest =
+        string[] xmlKeysOfInterest =
         {
             "IterationDelay", "Repetitions", "UncagingLaserPower", "TriggerCount", "AsyncSyncFrequency",
             "InitialDelay", "InterPointDelay", "SpiralRevolutions", "IsSpiral", "SpiralSizeInMicrons"
         };
 
-        StringBuilder sb = new();
-        foreach (string part in parts)
+        List<string> summaryLines = new();
+        foreach (string part in xmlParts)
         {
             string key = part.Split("=")[0];
             string value = part.Split("\"")[1];
-            if (keysOfInterest.Contains(key))
-                sb.AppendLine($"{key}: {value}");
+            if (xmlKeysOfInterest.Contains(key))
+                summaryLines.Add($"XML {key}: {value}");
         }
-        return sb.ToString();
+
+        string[] envKeysOfInterest =
+        {
+            "Name", "Duration", "SpiralSize", "SpiralRevolutions",
+        };
+
+        foreach (string line in envText.Split("\n"))
+        {
+            if (!line.Contains("<PVGalvoPoint "))
+                continue;
+
+            foreach (string kvp in line.Split(" ").Where(x => x.Contains("=")))
+            {
+                string[] pair = kvp.Split("=");
+                string key = pair[0];
+                string value = pair[1].Trim('"');
+                if (envKeysOfInterest.Contains(key))
+                    summaryLines.Add($"ENV {key}: {value}");
+            }
+        }
+
+        string[] uniqueLines = summaryLines.Distinct().ToArray();
+
+        return string.Join(Environment.NewLine, uniqueLines);
     }
 }
