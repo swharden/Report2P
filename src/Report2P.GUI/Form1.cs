@@ -90,6 +90,7 @@ namespace Report2P.GUI
 
             pbProgress.Value = 0;
             lblProgress1.Text = "Analysis complete.";
+            btnLaunch.Enabled = true;
         }
     }
 }
