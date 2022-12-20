@@ -78,7 +78,7 @@ internal class ReportBuilder
                     }
                     else
                     {
-                        sb.AppendLine($"<a href='{path}'><img src='{path}' height='300'></a>");
+                        sb.AppendLine($"<a href='{path}'><img src='{path}' height='300' class='mx-auto p-2'></a>");
                     }
                 }
             }
